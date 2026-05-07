@@ -1,0 +1,7 @@
+# Abaikan file upload dari pengguna
+foto_warga/
+galeri_img/
+
+# Abaikan file sistem OS
+.DS_Store
+Thumbs.db

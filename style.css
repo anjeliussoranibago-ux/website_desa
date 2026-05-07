@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html {
+    font-size: 80%; /* Skala dasar UI, ubah ke 85% atau 80% untuk lebih kecil */
+    width: 100%;
+}
+
+body {
+    background-color: #f4f7f9 !important;
+    font-family: 'Poppins', sans-serif;
+    color: #334155;
+    font-size: 0.9rem;
+    overflow-x: hidden; /* Cukup di body saja, mencegah layar HP macet (gak bisa scroll) */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(244, 247, 249, 0.75), rgba(244, 247, 249, 0.85)), url('hhhh.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -100;
+    pointer-events: none;
+}
+
+img {
+    max-width: 100%; /* Unit relatif agar gambar selalu menyesuaikan wadah */
+    height: auto;
+}
+
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0,0,0,0.02) !important;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* Mencegah elemen hilang selamanya jika Android mengaktifkan Battery Saver (Reduced Motion) */
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.hover-scale:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #4f46e5 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #34e952 0%, #3b82f6 100%) !important;
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table > :not(caption) > * > * {
+    padding: 1rem 1.2rem;
+    border-bottom-color: #e2e8f0;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.3px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* Efek Ripple Sentuhan ala Material Design Android */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+.btn::after {
+    content: ""; background: rgba(255, 255, 255, 0.3); display: block; position: absolute;
+    border-radius: 50%; padding-top: 150%; padding-left: 150%;
+    margin-top: -75%; margin-left: -75%; opacity: 0; transition: all 0.6s ease-out;
+}
+.btn:active::after {
+    padding-top: 0; padding-left: 0; margin-top: 0; margin-left: 0;
+    opacity: 1; transition: 0s;
+}
+a, button, .nav-link, input, select {
+    -webkit-tap-highlight-color: transparent !important; /* Menghilangkan kedip kotak biru di Android */
+}
+
+.btn-sm {
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 0.6rem 1rem;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.badge {
+    padding: 0.5em 0.8em;
+    border-radius: 6px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.search-form {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.logo-img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover; /* Memaksa gambar mengisi penuh seluruh ruang */
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 0; /* Menghilangkan jarak dalam agar gambar menempel ke tepi */
+    border: 3px solid #ffffff; /* Bingkai luar putih sebagai pengganti jarak */
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+.sidebar-scroll-content {
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sidebar .nav-link {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 5px;
+    font-size: 0.88rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.sidebar .nav-link.active {
+    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%) !important;
+    color: #ffffff !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+    font-weight: 600;
+}
+
+.setting-block {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.setting-block:hover {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+.setting-block h6 {
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 10px;
+    margin-bottom: 16px;
+}
+
+/* Memastikan Topbar & Dropdown Profil selalu di atas konten, tapi di bawah sidebar mobile */
+.topbar {
+    position: relative;
+    z-index: 1025 !important;
+}
+
+@media (max-width: 767.98px) {
+    html {
+        font-size: 78% !important; /* Sedikit diperbesar agar form lebih nyaman disentuh */
+    }
+
+    body::before {
+        /* Menyesuaikan fokus background di layar portrait HP */
+        background-position: center center !important;
+        /* Mematikan efek fixed attachment yang sering memicu bug zoom di mobile */
+        background-attachment: scroll !important;
+        /* Mengunci tinggi elemen agar stabil saat toolbar browser memendek/memanjang */
+        height: 100vh !important;
+    }
+
+    /* Mengubah Layout dari 100vh (App-like) ke Scroll Normal untuk HP */
+    .col-md-9, .col-lg-10 {
+        height: 100vh !important;
+        height: 100dvh !important; /* dVH mengatasi URL bar loncat tanpa merusak scroll */
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Perbaikan BUG Fatal Flexbox Scroll & Gambar Terpotong di Android Chrome */
+    .flex-grow-1 {
+        min-height: 0 !important; /* Kunci utama agar wadah bisa di-scroll dan konten tidak hilang */
+    }
+
+    div[style*="overflow-y: auto"] {
+        flex: 1 1 0% !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important; /* Memulihkan momentum scroll di HP */
+    }
+
+    /* Merampingkan Padding dan Margin khusus di Mobile Admin */
+    .card-header {
+        padding: 0.85rem 1rem !important;
+    }
+    .card-body, .glass-card {
+        padding: 0.85rem !important;
+    }
+    .setting-block {
+        padding: 0.85rem !important;
+        margin-bottom: 0.85rem !important;
+    }
+    .topbar {
+        height: 3.5rem !important;
+        margin-bottom: 0.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        position: sticky;
+        top: 0;
+        z-index: 1025 !important;
+    }
+
+    .btn {
+        padding: 0.35rem 0.75rem !important; /* Tombol lebih ringkas */
+    }
+
+    /* Mencegah Auto-zoom saat mengetik di Form (Android/iOS Chrome) */
+    .form-control, .form-select {
+        font-size: 16px !important;
+        padding: 0.6rem !important;
+    }
+
+    /* Tabel Responsif: Geser ke samping (Scroll) di HP */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        box-shadow: inset -5px 0 10px rgba(0,0,0,0.02); /* Bayangan kecil mengindikasikan bisa digeser */
+    }
+    .table {
+        min-width: 800px; /* Paksa tabel tetap lebar agar tidak tumpang tindih */
+    }
+    .table > :not(caption) > * > * {
+        padding: 0.75rem 0.6rem !important;
+        white-space: nowrap !important; /* Teks tidak terlipat ke bawah */
+    }
+    .table td, .table th {
+        vertical-align: middle;
+    }
+}
