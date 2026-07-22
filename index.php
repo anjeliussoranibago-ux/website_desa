@@ -89,46 +89,6 @@ foreach ($edu_data as $row) {
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css?v=<?= time() ?>">
-    <style>
-        body {
-            background-color: #f8f9fc !important;
-            color: #5a5c69;
-            font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .sidebar {
-            background: #4e73df !important;
-            background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%) !important;
-            background-size: cover;
-            z-index: 100;
-            min-height: 100vh;
-        }
-        .sidebar .nav-item { margin-bottom: 0.3rem; }
-        .sidebar .nav-link { color: rgba(255,255,255,.8) !important; padding: 0.85rem 1.15rem; margin: 0 0.75rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.3px; transition: all 0.3s ease; display: flex; align-items: center; }
-        .sidebar .nav-link:hover { color: #ffffff !important; background: rgba(255,255,255,0.15); transform: translateX(5px); }
-        .sidebar .nav-link.active { color: #4e73df !important; background: #ffffff !important; font-weight: 800; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        .sidebar .nav-link i.me-2 { font-size: 1.2rem; width: 30px; text-align: center; transition: transform 0.3s ease; }
-        .sidebar .nav-link:hover i.me-2 { transform: scale(1.2) rotate(5deg); }
-
-        .topbar { height: 4.375rem; background-color: #fff; box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15); margin-bottom: 0.5rem; }
-        
-        /* Custom Cards Dashboard */
-        .card-stats { border: none; border-radius: 0.5rem; box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15); transition: transform 0.2s; }
-        .card-stats:hover { transform: translateY(-5px); }
-        .border-left-primary { border-left: 0.25rem solid #4e73df !important; }
-        .border-left-success { border-left: 0.25rem solid #1cc88a !important; }
-        .border-left-info { border-left: 0.25rem solid #36b9cc !important; }
-        .border-left-warning { border-left: 0.25rem solid #f6c23e !important; }
-        .text-xs { font-size: .8rem; }
-        
-        @media (max-width: 767.98px) {
-            .sidebar { position: fixed; top: 0; left: -250px; width: 250px; height: 100vh; transition: all 0.3s ease-in-out; z-index: 1040 !important; }
-            .sidebar.show { left: 0; box-shadow: 0.15rem 0 1.75rem 0 rgba(58, 59, 69, 0.15) !important; }
-            .sidebar-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1030; opacity: 0; visibility: hidden; transition: all 0.3s ease-in-out; }
-            .sidebar-overlay.show { opacity: 1; visibility: visible; }
-        }
-
-        .footer-marquee-official { background: #fff; border-top: 1px solid #e3e6f0; color: #858796; font-size: 0.8rem; padding: 1rem 0; }
-    </style>
 </head>
 <body>
     <div class="container-fluid p-0">

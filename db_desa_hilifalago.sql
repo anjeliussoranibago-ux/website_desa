@@ -24,9 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+/*!40101 SET NAMES utf8mb4 */;
+
+-- Nonaktifkan Foreign Key Check sementara agar tabel bisa di-drop
+SET FOREIGN_KEY_CHECKS = 0;
+
+--
 -- Struktur dari tabel `aparatur_desa`
 --
-
+DROP TABLE IF EXISTS `aparatur_desa`;
 CREATE TABLE `aparatur_desa` (
   `id_aparatur` int(11) NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
@@ -49,7 +59,7 @@ INSERT INTO `aparatur_desa` (`id_aparatur`, `nama`, `jabatan`, `foto`, `urutan`)
 --
 -- Struktur dari tabel `berita_informasi`
 --
-
+DROP TABLE IF EXISTS `berita_informasi`;
 CREATE TABLE `berita_informasi` (
   `id_berita` int(11) NOT NULL,
   `judul` varchar(200) DEFAULT NULL,
@@ -65,7 +75,7 @@ CREATE TABLE `berita_informasi` (
 --
 -- Struktur dari tabel `dokumen_penduduk`
 --
-
+DROP TABLE IF EXISTS `dokumen_penduduk`;
 CREATE TABLE `dokumen_penduduk` (
   `id_dokumen` int(11) NOT NULL,
   `nik` varchar(16) DEFAULT NULL,
@@ -81,7 +91,7 @@ CREATE TABLE `dokumen_penduduk` (
 --
 -- Struktur dari tabel `galeri`
 --
-
+DROP TABLE IF EXISTS `galeri`;
 CREATE TABLE `galeri` (
   `id_galeri` int(11) NOT NULL,
   `file_foto` varchar(255) DEFAULT NULL,
@@ -106,7 +116,7 @@ INSERT INTO `galeri` (`id_galeri`, `file_foto`, `judul_kegiatan`, `tanggal_kegia
 --
 -- Struktur dari tabel `kartu_keluarga`
 --
-
+DROP TABLE IF EXISTS `kartu_keluarga`;
 CREATE TABLE `kartu_keluarga` (
   `no_kk` varchar(16) NOT NULL,
   `nik_kepala_keluarga` varchar(16) NOT NULL,
@@ -123,7 +133,7 @@ CREATE TABLE `kartu_keluarga` (
 --
 -- Struktur dari tabel `master_surat`
 --
-
+DROP TABLE IF EXISTS `master_surat`;
 CREATE TABLE `master_surat` (
   `id` int(11) NOT NULL,
   `kode_surat` varchar(20) NOT NULL,
@@ -136,7 +146,7 @@ CREATE TABLE `master_surat` (
 --
 -- Struktur dari tabel `mutasi_penduduk`
 --
-
+DROP TABLE IF EXISTS `mutasi_penduduk`;
 CREATE TABLE `mutasi_penduduk` (
   `id` int(11) NOT NULL,
   `nik` varchar(16) NOT NULL,
@@ -151,7 +161,7 @@ CREATE TABLE `mutasi_penduduk` (
 --
 -- Struktur dari tabel `penduduk`
 --
-
+DROP TABLE IF EXISTS `penduduk`;
 CREATE TABLE `penduduk` (
   `nik` varchar(16) NOT NULL,
   `no_kk` varchar(16) NOT NULL,
@@ -184,7 +194,7 @@ INSERT INTO `penduduk` (`nik`, `no_kk`, `nama_lengkap`, `tempat_lahir`, `tanggal
 --
 -- Struktur dari tabel `penerima_bansos`
 --
-
+DROP TABLE IF EXISTS `penerima_bansos`;
 CREATE TABLE `penerima_bansos` (
   `id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
@@ -197,7 +207,7 @@ CREATE TABLE `penerima_bansos` (
 --
 -- Struktur dari tabel `permohonan_surat`
 --
-
+DROP TABLE IF EXISTS `permohonan_surat`;
 CREATE TABLE `permohonan_surat` (
   `id` int(11) NOT NULL,
   `nik_pemohon` varchar(16) NOT NULL,
@@ -212,7 +222,7 @@ CREATE TABLE `permohonan_surat` (
 --
 -- Struktur dari tabel `program_bansos`
 --
-
+DROP TABLE IF EXISTS `program_bansos`;
 CREATE TABLE `program_bansos` (
   `id` int(11) NOT NULL,
   `nama_program` varchar(100) NOT NULL,
@@ -226,7 +236,7 @@ CREATE TABLE `program_bansos` (
 --
 -- Struktur dari tabel `users`
 --
-
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -409,8 +419,8 @@ ALTER TABLE `penerima_bansos`
 --
 ALTER TABLE `permohonan_surat`
   ADD CONSTRAINT `permohonan_surat_ibfk_1` FOREIGN KEY (`nik_pemohon`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- Aktifkan kembali Foreign Key Check
+SET FOREIGN_KEY_CHECKS = 1;
+
+COMMIT;
