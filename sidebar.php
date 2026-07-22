@@ -9,7 +9,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </div>
     <div class="sidebar-scroll-content flex-grow-1">
         <ul class="nav flex-column mt-2">
-            <li class="nav-item"><a href="index.php" class="nav-link <?= $current_page == 'index.php' ? 'active' : '' ?>"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li class="nav-item"><a href="dashboard.php" class="nav-link <?= $current_page == 'dashboard.php' ? 'active' : '' ?>"><i class="fa-solid fa-house"></i> Dashboard</a></li>
             <li class="nav-item"><a href="data_penduduk.php" class="nav-link <?= in_array($current_page, ['data_penduduk.php', 'edit_penduduk.php', 'lihat_penduduk.php']) ? 'active' : '' ?>"><i class="fa-solid fa-users"></i> Data Penduduk</a></li>
             <li class="nav-item"><a href="dokumen_penduduk.php" class="nav-link <?= in_array($current_page, ['dokumen_penduduk.php']) ? 'active' : '' ?>"><i class="fa-solid fa-folder-open"></i> Dokumen Penduduk</a></li>
             <li class="nav-item"><a href="tambah_penduduk.php" class="nav-link <?= $current_page == 'tambah_penduduk.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-plus"></i> Tambah Penduduk</a></li>

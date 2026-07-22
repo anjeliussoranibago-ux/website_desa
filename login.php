@@ -3,7 +3,7 @@ session_start();
 $error_message = '';
 
 if (isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true) {
-    header("Location: index.php");
+    header("Location: dashboard.php");
     exit;
 }
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($username === $admin_username && $password === $admin_password) {
         $_SESSION['user_logged_in'] = true;
         $_SESSION['username'] = $admin_username;
-        header("Location: index.php");
+        header("Location: dashboard.php");
         exit;
     } else {
         $error_message = 'Username atau password salah!';
