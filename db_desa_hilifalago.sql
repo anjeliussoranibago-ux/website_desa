@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Bulan Mei 2026 pada 18.40
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Generation Time: Jul 22, 2026 at 11:14 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,19 +24,9 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-/*!40101 SET NAMES utf8mb4 */;
-
--- Nonaktifkan Foreign Key Check sementara agar tabel bisa di-drop
-SET FOREIGN_KEY_CHECKS = 0;
-
+-- Table structure for table `aparatur_desa`
 --
--- Struktur dari tabel `aparatur_desa`
---
-DROP TABLE IF EXISTS `aparatur_desa`;
+
 CREATE TABLE `aparatur_desa` (
   `id_aparatur` int(11) NOT NULL,
   `nama` varchar(100) DEFAULT NULL,
@@ -46,7 +36,7 @@ CREATE TABLE `aparatur_desa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `aparatur_desa`
+-- Dumping data for table `aparatur_desa`
 --
 
 INSERT INTO `aparatur_desa` (`id_aparatur`, `nama`, `jabatan`, `foto`, `urutan`) VALUES
@@ -57,9 +47,9 @@ INSERT INTO `aparatur_desa` (`id_aparatur`, `nama`, `jabatan`, `foto`, `urutan`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `berita_informasi`
+-- Table structure for table `berita_informasi`
 --
-DROP TABLE IF EXISTS `berita_informasi`;
+
 CREATE TABLE `berita_informasi` (
   `id_berita` int(11) NOT NULL,
   `judul` varchar(200) DEFAULT NULL,
@@ -73,9 +63,9 @@ CREATE TABLE `berita_informasi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `dokumen_penduduk`
+-- Table structure for table `dokumen_penduduk`
 --
-DROP TABLE IF EXISTS `dokumen_penduduk`;
+
 CREATE TABLE `dokumen_penduduk` (
   `id_dokumen` int(11) NOT NULL,
   `nik` varchar(16) DEFAULT NULL,
@@ -89,9 +79,9 @@ CREATE TABLE `dokumen_penduduk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `galeri`
+-- Table structure for table `galeri`
 --
-DROP TABLE IF EXISTS `galeri`;
+
 CREATE TABLE `galeri` (
   `id_galeri` int(11) NOT NULL,
   `file_foto` varchar(255) DEFAULT NULL,
@@ -100,23 +90,21 @@ CREATE TABLE `galeri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `galeri`
+-- Dumping data for table `galeri`
 --
 
 INSERT INTO `galeri` (`id_galeri`, `file_foto`, `judul_kegiatan`, `tanggal_kegiatan`) VALUES
-(1, 'omohada.jpg', 'Profil Desa', '2026-05-07'),
-(2, 'hhhh.jpg', 'Profil Desa', '2026-05-07'),
-(3, 'hilifalago.jpg', 'Profil Desa', '2026-05-07'),
-(4, 'hhh.jpg', 'Profil Desa', '2026-05-07'),
-(6, 'galeri_69fb9b80f0d69.jpg', 'Profil Desa', '2026-05-06'),
-(7, 'galeri_69fb9ba196e1b.jpg', 'blt', '2026-05-06');
+(8, 'omohada.jpg', 'Profil Desa', '2026-07-22'),
+(9, 'hhhh.jpg', 'Profil Desa', '2026-07-22'),
+(10, 'hilifalago.jpg', 'Profil Desa', '2026-07-22'),
+(11, 'hhh.jpg', 'Profil Desa', '2026-07-22');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kartu_keluarga`
+-- Table structure for table `kartu_keluarga`
 --
-DROP TABLE IF EXISTS `kartu_keluarga`;
+
 CREATE TABLE `kartu_keluarga` (
   `no_kk` varchar(16) NOT NULL,
   `nik_kepala_keluarga` varchar(16) NOT NULL,
@@ -131,9 +119,9 @@ CREATE TABLE `kartu_keluarga` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_surat`
+-- Table structure for table `master_surat`
 --
-DROP TABLE IF EXISTS `master_surat`;
+
 CREATE TABLE `master_surat` (
   `id` int(11) NOT NULL,
   `kode_surat` varchar(20) NOT NULL,
@@ -144,9 +132,9 @@ CREATE TABLE `master_surat` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `mutasi_penduduk`
+-- Table structure for table `mutasi_penduduk`
 --
-DROP TABLE IF EXISTS `mutasi_penduduk`;
+
 CREATE TABLE `mutasi_penduduk` (
   `id` int(11) NOT NULL,
   `nik` varchar(16) NOT NULL,
@@ -159,9 +147,9 @@ CREATE TABLE `mutasi_penduduk` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penduduk`
+-- Table structure for table `penduduk`
 --
-DROP TABLE IF EXISTS `penduduk`;
+
 CREATE TABLE `penduduk` (
   `nik` varchar(16) NOT NULL,
   `no_kk` varchar(16) NOT NULL,
@@ -181,20 +169,12 @@ CREATE TABLE `penduduk` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data untuk tabel `penduduk`
---
-
-INSERT INTO `penduduk` (`nik`, `no_kk`, `nama_lengkap`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `agama`, `pendidikan`, `pekerjaan`, `status_perkawinan`, `alamat`, `rt`, `rw`, `status_penduduk`, `created_at`, `updated_at`) VALUES
-('1234567890136079', '1234567890121212', 'Anjelius Sorani Bago', 'Hilifalago', '2004-12-17', 'Laki-laki', 'Kristen', 'S1-Sistem Informasi', 'Mahasiswa', 'Belum Kawin', 'Desa hilifalago raya\r\n', '2', '-', 'Tetap', '2026-04-20 04:41:49', '2026-04-26 17:41:15'),
-('1423770045874689', '2526383738573845', 'Vawukai', 'Hilifalago', '2026-04-27', 'Laki-laki', 'Hindu', 'SMA', 'Petani', 'Belum Kawin', 'Hilifalago raya', '2', '-', 'Pendatang', '2026-04-26 19:31:43', '2026-04-26 19:33:44');
-
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penerima_bansos`
+-- Table structure for table `penerima_bansos`
 --
-DROP TABLE IF EXISTS `penerima_bansos`;
+
 CREATE TABLE `penerima_bansos` (
   `id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL,
@@ -205,9 +185,9 @@ CREATE TABLE `penerima_bansos` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permohonan_surat`
+-- Table structure for table `permohonan_surat`
 --
-DROP TABLE IF EXISTS `permohonan_surat`;
+
 CREATE TABLE `permohonan_surat` (
   `id` int(11) NOT NULL,
   `nik_pemohon` varchar(16) NOT NULL,
@@ -220,9 +200,9 @@ CREATE TABLE `permohonan_surat` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `program_bansos`
+-- Table structure for table `program_bansos`
 --
-DROP TABLE IF EXISTS `program_bansos`;
+
 CREATE TABLE `program_bansos` (
   `id` int(11) NOT NULL,
   `nama_program` varchar(100) NOT NULL,
@@ -234,9 +214,9 @@ CREATE TABLE `program_bansos` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
-DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
@@ -247,7 +227,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `nama_lengkap`, `jabatan`, `created_at`) VALUES
@@ -258,169 +238,169 @@ INSERT INTO `users` (`id`, `username`, `password`, `nama_lengkap`, `jabatan`, `c
 --
 
 --
--- Indeks untuk tabel `aparatur_desa`
+-- Indexes for table `aparatur_desa`
 --
 ALTER TABLE `aparatur_desa`
   ADD PRIMARY KEY (`id_aparatur`);
 
 --
--- Indeks untuk tabel `berita_informasi`
+-- Indexes for table `berita_informasi`
 --
 ALTER TABLE `berita_informasi`
   ADD PRIMARY KEY (`id_berita`);
 
 --
--- Indeks untuk tabel `dokumen_penduduk`
+-- Indexes for table `dokumen_penduduk`
 --
 ALTER TABLE `dokumen_penduduk`
   ADD PRIMARY KEY (`id_dokumen`);
 
 --
--- Indeks untuk tabel `galeri`
+-- Indexes for table `galeri`
 --
 ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
--- Indeks untuk tabel `kartu_keluarga`
+-- Indexes for table `kartu_keluarga`
 --
 ALTER TABLE `kartu_keluarga`
   ADD PRIMARY KEY (`no_kk`);
 
 --
--- Indeks untuk tabel `master_surat`
+-- Indexes for table `master_surat`
 --
 ALTER TABLE `master_surat`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_surat` (`kode_surat`);
 
 --
--- Indeks untuk tabel `mutasi_penduduk`
+-- Indexes for table `mutasi_penduduk`
 --
 ALTER TABLE `mutasi_penduduk`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nik` (`nik`);
 
 --
--- Indeks untuk tabel `penduduk`
+-- Indexes for table `penduduk`
 --
 ALTER TABLE `penduduk`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indeks untuk tabel `penerima_bansos`
+-- Indexes for table `penerima_bansos`
 --
 ALTER TABLE `penerima_bansos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `program_id` (`program_id`);
 
 --
--- Indeks untuk tabel `permohonan_surat`
+-- Indexes for table `permohonan_surat`
 --
 ALTER TABLE `permohonan_surat`
   ADD PRIMARY KEY (`id`),
   ADD KEY `nik_pemohon` (`nik_pemohon`);
 
 --
--- Indeks untuk tabel `program_bansos`
+-- Indexes for table `program_bansos`
 --
 ALTER TABLE `program_bansos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `aparatur_desa`
+-- AUTO_INCREMENT for table `aparatur_desa`
 --
 ALTER TABLE `aparatur_desa`
   MODIFY `id_aparatur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `berita_informasi`
+-- AUTO_INCREMENT for table `berita_informasi`
 --
 ALTER TABLE `berita_informasi`
   MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `dokumen_penduduk`
+-- AUTO_INCREMENT for table `dokumen_penduduk`
 --
 ALTER TABLE `dokumen_penduduk`
   MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `galeri`
+-- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `master_surat`
+-- AUTO_INCREMENT for table `master_surat`
 --
 ALTER TABLE `master_surat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `mutasi_penduduk`
+-- AUTO_INCREMENT for table `mutasi_penduduk`
 --
 ALTER TABLE `mutasi_penduduk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `penerima_bansos`
+-- AUTO_INCREMENT for table `penerima_bansos`
 --
 ALTER TABLE `penerima_bansos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `permohonan_surat`
+-- AUTO_INCREMENT for table `permohonan_surat`
 --
 ALTER TABLE `permohonan_surat`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `program_bansos`
+-- AUTO_INCREMENT for table `program_bansos`
 --
 ALTER TABLE `program_bansos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `mutasi_penduduk`
+-- Constraints for table `mutasi_penduduk`
 --
 ALTER TABLE `mutasi_penduduk`
   ADD CONSTRAINT `mutasi_penduduk_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `penerima_bansos`
+-- Constraints for table `penerima_bansos`
 --
 ALTER TABLE `penerima_bansos`
   ADD CONSTRAINT `penerima_bansos_ibfk_1` FOREIGN KEY (`program_id`) REFERENCES `program_bansos` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `permohonan_surat`
+-- Constraints for table `permohonan_surat`
 --
 ALTER TABLE `permohonan_surat`
   ADD CONSTRAINT `permohonan_surat_ibfk_1` FOREIGN KEY (`nik_pemohon`) REFERENCES `penduduk` (`nik`) ON DELETE CASCADE ON UPDATE CASCADE;
-
--- Aktifkan kembali Foreign Key Check
-SET FOREIGN_KEY_CHECKS = 1;
-
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
